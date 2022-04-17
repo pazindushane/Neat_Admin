@@ -1,0 +1,46 @@
+<div class="bdy">
+  <div class="container">
+    <div class="content-contenaire">
+      <div class="top-container">
+        <img src="https://i.ibb.co/09cmXd9/Logo.png" alt="img" style="width: 131px">
+        <h2> Sign In </h2>
+      </div>
+      <form (ngSubmit)="signIn()" [formGroup]="LoginForm">
+        <div class="input">
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input class="matinput" formControlName="username" matInput placeholder="pat@example.com" required type="text">
+            <mat-error *ngIf="LoginForm.get('username')?.touched && LoginForm.get('username')?.invalid">Please enter a
+              valid username
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input formControlName="password"  [type]="hide ? 'password' : 'text'" matInput>
+            <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" mat-icon-button
+                    matSuffix>
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="LoginForm.get('password')?.touched && LoginForm.get('password')?.invalid">Please enter a
+              valid password
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember Me</label>
+        </div>
+        <button [disabled]="LoginForm.invalid" class="btn-login" color="primary" type="submit" mat-raised-button>Login</button>
+      </form>
+    </div>
+    <div class="img-container" style="background-image: url('https://i.ibb.co/QmLKsyN/iphen-bcak-01.png');">
+      <div class="toronto-logo">
+        <div class="toronto">
+          <img src="https://i.ibb.co/09cmXd9/Logo.png" alt="img-one" style="width: 304px">
+        </div>
+        <div class="welcome">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

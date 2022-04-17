@@ -1,0 +1,87 @@
+<div  class="form-main-bg-1">
+  <div class="form-body-1">
+    <div class="form-header">
+      <div class="form-header-title">
+        <span>Update Product</span>
+      </div>
+    </div>
+
+    <form #form [formGroup]="UpdateItemsFrom" class="form-container">
+      <div>
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input  matInput formControlName="product_name" placeholder="product_name" ngDefaultControl  minlength="3">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input  matInput formControlName="description" placeholder="description" ngDefaultControl minlength="1">
+          </mat-form-field>
+
+        </div>
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Image Path</mat-label>
+            <input  matInput formControlName="image_path" placeholder="image_path" ngDefaultControl minlength="1">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pan size</mat-label>
+            <input  matInput formControlName="pan_size" placeholder="pan_size" ngDefaultControl minlength="1">
+          </mat-form-field>
+
+        </div>
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Dimension</mat-label>
+            <input  matInput formControlName="dimension" placeholder="dimension" minlength="3">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Net Weight</mat-label>
+            <input  matInput formControlName="netweight" placeholder="netweight" minlength="1">
+          </mat-form-field>
+
+        </div>
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Power Supply</mat-label>
+            <input  matInput formControlName="power_supply" placeholder="power_supply" minlength="3">
+          </mat-form-field>
+
+        </div>
+
+        <div class="form-row">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <input  matInput formControlName="status" placeholder="status" minlength="3">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Category Name</mat-label>
+            <input  matInput formControlName="category_name" placeholder="category_name" minlength="3">
+          </mat-form-field>
+
+        </div>
+
+      </div>
+      <div class="form-row-btn">
+        <div class="row-btn">
+          <button id="cancelbtn2" mat-raised-button (click)="onNoClick()">Cancel</button>
+          <button id="cancelbtn" mat-raised-button type="reset" (click)="resetForm()">Reset</button>
+          <button (click)="saveItem(form)" *ngIf="!apiResponse" id="savebtn" mat-raised-button type="submit">Save</button>
+          <button *ngIf="apiResponse" [class.btn-spinner]="apiResponse" id="spinner" mat-raised-button></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

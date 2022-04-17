@@ -1,0 +1,40 @@
+<div class="alert-body">
+  <div class="alert-header mat-elevation-z1">
+    <div></div>
+    <div class="alert-header-title ">
+      <span>Update Category</span>
+    </div>
+    <div></div>
+  </div>
+
+  <form #form (ngSubmit)="saveItem()" [formGroup]="UpdateCategoryFrom" class="form-container">
+    <div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Category Name</mat-label>
+          <input  matInput formControlName="category_name" placeholder="category_name" ngDefaultControl  minlength="3">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <input formControlName="status" matInput placeholder="status" ngDefaultControl minlength="3">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <section class="example-section">
+          <mat-checkbox #confirmed class="example-margin" >Are You wish to Update This Component</mat-checkbox>
+        </section>
+      </div>
+
+    </div>
+    <div class="form-row-btn">
+      <div class="row-btn">
+        <button id="cancelbtn" (click)="onNoClick()" mat-raised-button type="reset">Cancel</button>
+        <button  id="savebtn"  mat-raised-button type="submit" [disabled]="!confirmed.checked">Save</button>
+        <button *ngIf="apiResponse" [class.btn-spinner]="apiResponse" id="spinner" mat-raised-button></button>
+      </div>
+    </div>
+  </form>
+
+</div>

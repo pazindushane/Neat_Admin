@@ -1,0 +1,34 @@
+<div class="alert-body">
+  <div class="alert-header mat-elevation-z1">
+    <div></div>
+    <div class="alert-header-title ">
+      <span>Add Image</span>
+    </div>
+    <div></div>
+  </div>
+
+  <form #form  [formGroup]="UpdateImgesForm" class="form-container">
+    <div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Product Name</mat-label>
+          <input  matInput formControlName="product_name" placeholder="model_name" ngDefaultControl  minlength="3">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Image Path</mat-label>
+          <input formControlName="image_path" matInput placeholder="capacity" ngDefaultControl minlength="3">
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="form-row-btn">
+      <div class="row-btn">
+        <button id="cancelbtn" (click)="onNoClick()" mat-raised-button type="reset">Cancel</button>
+        <button  id="savebtn"  mat-raised-button (click)="saveModel()" >Save</button>
+        <button *ngIf="apiResponse" [class.btn-spinner]="apiResponse" id="spinner" mat-raised-button></button>
+      </div>
+    </div>
+  </form>
+
+</div>
